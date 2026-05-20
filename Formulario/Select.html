@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select com JavaScript</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+
+    select, button {
+      padding: 8px;
+      margin-top: 10px;
+    }
+
+    #mensagem {
+      margin-top: 20px;
+      font-weight: bold;
+      color: blue;
+    }
+
+    .erro {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Categoria de Produtos</h2>
+
+  <form>
+    <label for="categoria">Escolha uma categoria:</label><br>
+
+    <select id="categoria">
+      <option value="">-- Selecione --</option>
+      <option value="eletronicos">Eletrônicos</option>
+      <option value="roupas">Roupas</option>
+      <option value="alimentos">Alimentos</option>
+    </select>
+
+    <br>
+
+    <button type="button" onclick="verificarCategoria()">
+      Verificar
+    </button>
+  </form>
+
+  <div id="mensagem"></div>
+
+  <script>
+
+    function verificarCategoria() {
+
+      // Captura o valor selecionado
+      let categoria = document.getElementById("categoria").value;
+
+      // Elemento onde será exibida a mensagem
+      let mensagem = document.getElementById("mensagem");
+
+      // Verifica se nenhuma opção foi escolhida
+      if (categoria === "") {
+
+        alert("Por favor, selecione uma categoria.");
+
+        mensagem.innerHTML = "Erro: nenhuma categoria selecionada.";
+        mensagem.className = "erro";
+
+      } else {
+
+        // Estrutura de decisão
+        switch(categoria) {
+
+          case "eletronicos":
+            mensagem.innerHTML =
+              "Você escolheu Eletrônicos: celulares, notebooks e acessórios.";
+            mensagem.className = "";
+            break;
+
+          case "roupas":
+            mensagem.innerHTML =
+              "Você escolheu Roupas: camisetas, calças e jaquetas.";
+            mensagem.className = "";
+            break;
+
+          case "alimentos":
+            mensagem.innerHTML =
+              "Você escolheu Alimentos: produtos alimentícios em geral.";
+            mensagem.className = "";
+            break;
+
+          default:
+            mensagem.innerHTML =
+              "Categoria inválida.";
+            mensagem.className = "erro";
+        }
+      }
+    }
+
+  </script>
+
+</body>
+</html>
