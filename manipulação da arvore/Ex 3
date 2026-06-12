@@ -1,1 +1,52 @@
+<img class="img50" src="imagem1.jpg">
+<img class="img50" src="imagem2.jpg">
+<img class="img50" src="imagem3.jpg">
 
+<button onclick="aumentar()">Zoom +</button>
+<button onclick="diminuir()">Zoom -</button>
+
+
+<script>
+
+function aumentar(){
+
+let imagens = document.getElementsByClassName("img50");
+
+for(let img of imagens){
+    img.className = "img150";
+}
+
+}
+
+
+function diminuir(){
+
+let imagens = document.getElementsByClassName("img150");
+
+for(let img of imagens){
+    img.className = "img50";
+}
+
+}
+
+</script>
+
+
+<style>
+
+.img50{
+    width:50px;
+    height:50px;
+}
+
+.img100{
+    width:100px;
+    height:100px;
+}
+
+.img150{
+    width:150px;
+    height:150px;
+}
+
+</style>
