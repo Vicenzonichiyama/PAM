@@ -1,38 +1,38 @@
-<table>
-<tr>
-    <th>Livro</th>
-    <th>Páginas</th>
-</tr>
+<form>
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
 
-<tr class="livro">
-    <td>A Menina que Roubava Livros</td>
-    <td>400</td>
-</tr>
+<button type="button" onclick="mostrar()">Adicionar</button>
+</form>
 
-<tr class="livro">
-    <td>Harry Potter</td>
-    <td>500</td>
-</tr>
+<ul id="lista"></ul>
 
-<tr class="livro">
-    <td>O Hobbit</td>
-    <td>300</td>
-</tr>
-</table>
 
 <script>
-let livros = document.getElementsByClassName("livro");
+function mostrar(){
 
-for(let livro of livros){
-    livro.onclick = function(){
-        this.classList.toggle("azul");
+let campos = document.getElementsByTagName("input");
+let lista = document.getElementById("lista");
+
+for(let campo of campos){
+
+    if(campo.value != ""){
+        let item = document.createElement("li");
+        item.innerHTML = campo.value;
+        lista.appendChild(item);
+
+        campo.value = "";
     }
+
+}
+
 }
 </script>
-
-<style>
-.azul{
-    background-color: blue;
-    color:white;
-}
-</style>
